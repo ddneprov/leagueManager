@@ -27,13 +27,6 @@ public class Application extends SpringBootServletInitializer {
 
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);
-        DatabaseHandler databaseHandler = new DatabaseHandler();
-
-        User user = new User("Danila", "ddneprov_24@mail.ru", "12345");
-        Team team = new Team("Армада", 20, "City Football");
-
-        databaseHandler.setNewUser(user);
-        databaseHandler.setNewTeam(team);
     }
 
 }
