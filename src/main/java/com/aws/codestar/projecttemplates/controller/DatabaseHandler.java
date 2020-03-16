@@ -1,6 +1,8 @@
 package com.aws.codestar.projecttemplates.controller;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class DatabaseHandler extends Config {
     Connection dbConnection;
@@ -54,21 +56,33 @@ public class DatabaseHandler extends Config {
     }
 
 
-    public void getAllTeams(){
-        String request = "SELECT " + Const.TEAM_NAME + " FROM " + Const.TEAMS_TABLE;
+    public List<Team> getAllTeams(){
+        String request = "SELECT " + Const.TEAM_ID
+                        + " ," + Const.TEAM_NAME
+                        + " ," + Const.TEAM_NUMBER_OF_PLAYERS
+                        + " ," + Const.TEAM_LEAGUE
+                        + " FROM " + Const.TEAMS_TABLE;
         try{
             Statement st = getDbConnection().createStatement();
             ResultSet rs = st.executeQuery(request);
 
+            List<Team> dbTeams = new ArrayList<Team>();
             while (rs.next()){
 
-                String team_name = rs.getString("teamName");
-                System.out.printf(team_name + "\n");
+                Integer teamId = rs.getInt("teamId");
+                String teamName = rs.getString("teamName");
+                Integer numberOfPlayers = rs.getInt("numberOfPlayers");
+                String teamLeague = rs.getString("teamLeague");
+
+                Team dbTeam = new Team(teamId, teamName, numberOfPlayers, teamLeague);
+                dbTeams.add(dbTeam);
             }
+
+            return dbTeams;
 
         } catch (SQLException | ClassNotFoundException e){
             e.printStackTrace();
         }
-
+        return null;
     }
 }

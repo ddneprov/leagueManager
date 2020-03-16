@@ -2,16 +2,26 @@ package com.aws.codestar.projecttemplates.controller;
 
 public class Team {
 
-    
+    private Integer teamId;
     private String teamName;
     private Integer numberOfPlayers;
     private String teamLeague;
 
 
-    public Team(String teamName, Integer numberOfPlayers, String teamLeague) {
+    public Team(Integer teamId, String teamName, Integer numberOfPlayers, String teamLeague) {
+        this.teamId = teamId;
         this.teamName = teamName;
         this.numberOfPlayers = numberOfPlayers;
         this.teamLeague = teamLeague;
+    }
+
+
+    public Integer getTeamId() {
+        return teamId;
+    }
+
+    public void setTeamId(Integer teamId) {
+        this.teamId = teamId;
     }
 
     public String getTeamName() {
@@ -37,4 +47,5 @@ public class Team {
     public void setTeamLeague(String teamLeague) {
         this.teamLeague = teamLeague;
     }
+
 }

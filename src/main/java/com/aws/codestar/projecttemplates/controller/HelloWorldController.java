@@ -1,5 +1,7 @@
 package com.aws.codestar.projecttemplates.controller;
 
+import com.fasterxml.jackson.core.JsonGenerator;
+import org.json.JSONArray;
 import org.json.JSONObject;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -35,7 +37,6 @@ public class HelloWorldController {
     }
 
 
-
     @RequestMapping(value = "newuser", method = RequestMethod.POST)
     public String updateDB(@RequestBody User new_user){
         DatabaseHandler databaseHandler = new DatabaseHandler();
@@ -44,12 +45,26 @@ public class HelloWorldController {
         return "OK";
     }
 
+
+
+
+
+
+
     @RequestMapping(value = "getTeams", method = RequestMethod.GET)
-    public void getMessageFormat(){
+    public String  getAllTeams(){
         DatabaseHandler databaseHandler = new DatabaseHandler();
+        List<Team> teams = databaseHandler.getAllTeams();
+        JSONArray json = new JSONArray();
 
-        databaseHandler.getAllTeams();
-        //return "OK";
+        for (int i = 0; i < teams.size(); i++){
+            JSONObject obj = new JSONObject();
+            obj.put("teamId", teams.get(i).getTeamId());
+            obj.put("teamName", teams.get(i).getTeamName());
+            obj.put("numberOfPlayers", teams.get(i).getNumberOfPlayers());
+            obj.put("teamLeague", teams.get(i).getTeamLeague());
+            json.put(obj);
+        }
+        return json.toString();
     }
-
 }
