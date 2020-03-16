@@ -22,13 +22,11 @@ public class HelloWorldController {
 
     @RequestMapping(method = RequestMethod.GET, produces = "application/json")
     public ResponseEntity helloWorldGet(@RequestParam(value = "name", defaultValue = "World") String name) {
-        System.out.print("\n\n\n123 GET\n");
         return ResponseEntity.ok(createResponse(name));
     }
 
     @RequestMapping(method = RequestMethod.POST, produces = "application/json")
     public ResponseEntity helloWorldPost(@RequestParam(value = "name", defaultValue = "World") String name) {
-        System.out.print("\n\n\n123 POST\n");
         return ResponseEntity.ok(createResponse(name));
     }
 
@@ -37,18 +35,23 @@ public class HelloWorldController {
     }
 
 
+
+
     @RequestMapping(value = "newuser", method = RequestMethod.POST)
-    public String updateDB(@RequestBody User new_user){
+    public String setNewUser(@RequestBody User new_user){
         DatabaseHandler databaseHandler = new DatabaseHandler();
         User user = new User(new_user.getUserName(), new_user.getUserEmail(), new_user.getUserPassword());
         databaseHandler.setNewUser(user);
         return "OK";
     }
 
-
-
-
-
+    @RequestMapping(value = "newteam", method = RequestMethod.POST)
+    public String setNewTeam(@RequestBody Team new_team){
+        DatabaseHandler databaseHandler = new DatabaseHandler();
+        Team team = new Team(1, new_team.getTeamName(), new_team.getNumberOfPlayers(), new_team.getTeamLeague());
+        databaseHandler.setNewTeam(team);
+        return "OK";
+    }
 
 
     @RequestMapping(value = "getTeams", method = RequestMethod.GET)

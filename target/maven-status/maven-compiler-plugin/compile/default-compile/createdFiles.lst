@@ -1,2 +1,7 @@
 com/aws/codestar/projecttemplates/controller/HelloWorldController.class
+com/aws/codestar/projecttemplates/controller/Const.class
 com/aws/codestar/projecttemplates/Application.class
+com/aws/codestar/projecttemplates/controller/DatabaseHandler.class
+com/aws/codestar/projecttemplates/controller/User.class
+com/aws/codestar/projecttemplates/controller/Team.class
+com/aws/codestar/projecttemplates/controller/Config.class
