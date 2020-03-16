@@ -1,9 +1,6 @@
 package com.aws.codestar.projecttemplates.controller;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
 
 public class DatabaseHandler extends Config {
     Connection dbConnection;
@@ -54,5 +51,24 @@ public class DatabaseHandler extends Config {
         } catch (SQLException | ClassNotFoundException e){
             e.printStackTrace();
         }
+    }
+
+
+    public void getAllTeams(){
+        String request = "SELECT " + Const.TEAM_NAME + " FROM " + Const.TEAMS_TABLE;
+        try{
+            Statement st = getDbConnection().createStatement();
+            ResultSet rs = st.executeQuery(request);
+
+            while (rs.next()){
+
+                String team_name = rs.getString("teamName");
+                System.out.printf(team_name + "\n");
+            }
+
+        } catch (SQLException | ClassNotFoundException e){
+            e.printStackTrace();
+        }
+
     }
 }

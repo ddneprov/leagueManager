@@ -4,6 +4,9 @@ import org.json.JSONObject;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.BufferedInputStream;
+import java.io.InputStream;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -32,11 +35,21 @@ public class HelloWorldController {
     }
 
 
+
     @RequestMapping(value = "newuser", method = RequestMethod.POST)
-    public String updateDB(@RequestBody Team new_team){
+    public String updateDB(@RequestBody User new_user){
         DatabaseHandler databaseHandler = new DatabaseHandler();
-        Team team = new Team(new_team.getTeamName(), new_team.getNumberOfPlayers(), new_team.getTeamLeague());
-        databaseHandler.setNewTeam(team);
+        User user = new User(new_user.getUserName(), new_user.getUserEmail(), new_user.getUserPassword());
+        databaseHandler.setNewUser(user);
         return "OK";
     }
+
+    @RequestMapping(value = "getTeams", method = RequestMethod.GET)
+    public void getMessageFormat(){
+        DatabaseHandler databaseHandler = new DatabaseHandler();
+
+        databaseHandler.getAllTeams();
+        //return "OK";
+    }
+
 }

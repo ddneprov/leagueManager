@@ -2,6 +2,7 @@ package com.aws.codestar.projecttemplates.controller;
 
 public class Team {
 
+    
     private String teamName;
     private Integer numberOfPlayers;
     private String teamLeague;
