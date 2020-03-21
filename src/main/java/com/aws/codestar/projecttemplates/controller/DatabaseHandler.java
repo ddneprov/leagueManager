@@ -11,9 +11,9 @@ public class DatabaseHandler extends Config {
     Connection dbConnection;
 
     public Connection getDbConnection() throws ClassNotFoundException, SQLException{
-        String timezone = "?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=Europe/Moscow";
+        //String timezone = "?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=Europe/Moscow";
         String connectionString = "jdbc:mysql://" +
-                dbHost + ":" + dbPort + "/" + dbName + timezone;
+                dbHost + ":" + dbPort + "/" + dbName;// + timezone;
 
         Class.forName("com.mysql.cj.jdbc.Driver");
         dbConnection = DriverManager.getConnection(connectionString, dbUser, dbPass);
