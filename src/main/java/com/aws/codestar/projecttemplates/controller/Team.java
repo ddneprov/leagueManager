@@ -16,7 +16,7 @@ public class Team {
     private String teamLeague;
 
 
-    public Team() { }
+    public Team() {}
 
     public Team(Integer teamId, String teamName, Integer numberOfPlayers, String teamLeague) {
         this.teamId = teamId;

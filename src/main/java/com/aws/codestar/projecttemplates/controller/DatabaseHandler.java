@@ -20,6 +20,7 @@ public class DatabaseHandler extends Config {
         return dbConnection;
     }
 
+
     public void setNewUser(User user){
 
         String request = "INSERT INTO " + Const.USERS_TABLE +

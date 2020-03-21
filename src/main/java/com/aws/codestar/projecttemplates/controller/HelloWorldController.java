@@ -37,7 +37,7 @@ public class HelloWorldController {
 
 
 
-    @RequestMapping(value = "newuser", method = RequestMethod.POST)
+    @RequestMapping(value = "newUser", method = RequestMethod.POST)
     public String setNewUser(@RequestBody User new_user){
         DatabaseHandler databaseHandler = new DatabaseHandler();
         User user = new User(new_user.getUserName(), new_user.getUserEmail(), new_user.getUserPassword());
@@ -45,7 +45,7 @@ public class HelloWorldController {
         return "OK";
     }
 
-    @RequestMapping(value = "newteam", method = RequestMethod.POST)
+    @RequestMapping(value = "newTeam", method = RequestMethod.POST)
     public String setNewTeam(@RequestBody Team new_team){
         DatabaseHandler databaseHandler = new DatabaseHandler();
         Team team = new Team(1, new_team.getTeamName(), new_team.getNumberOfPlayers(), new_team.getTeamLeague());
@@ -54,7 +54,7 @@ public class HelloWorldController {
     }
 
 
-    @RequestMapping(value = "getTeams", method = RequestMethod.GET)
+    @RequestMapping(value = "getteams", method = RequestMethod.GET)
     public String  getAllTeams(){
         DatabaseHandler databaseHandler = new DatabaseHandler();
         List<Team> teams = databaseHandler.getAllTeams();
