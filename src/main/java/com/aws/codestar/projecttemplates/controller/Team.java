@@ -15,9 +15,6 @@ public class Team {
     private Integer numberOfPlayers;
     private String teamLeague;
 
-
-    public Team() {}
-
     public Team(Integer teamId, String teamName, Integer numberOfPlayers, String teamLeague) {
         this.teamId = teamId;
         this.teamName = teamName;
@@ -31,6 +28,7 @@ public class Team {
         this.teamLeague = teamLeague;
     }
 
+    public Team() {}
 
     public Integer getTeamId() {
         return teamId;
