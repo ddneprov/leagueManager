@@ -1,15 +1,14 @@
 package com.aws.codestar.projecttemplates.controller;
 
-import com.fasterxml.jackson.core.JsonGenerator;
-import org.json.JSONArray;
+import com.aws.codestar.projecttemplates.Reprisitory.TeamRep;
+import com.aws.codestar.projecttemplates.Reprisitory.UserRep;
+import com.aws.codestar.projecttemplates.domain.User;
 import org.json.JSONObject;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.io.BufferedInputStream;
-import java.io.InputStream;
 import java.util.List;
-import java.util.Map;
 
 /**
  * Basic Spring web service controller that handles all GET requests.
@@ -17,6 +16,12 @@ import java.util.Map;
 @RestController
 @RequestMapping("/")
 public class HelloWorldController {
+
+    @Autowired
+    TeamRep teamRep;
+
+    @Autowired
+    UserRep userRep;
 
     private static final String MESSAGE_FORMAT = "Hello %s!";
 
@@ -34,45 +39,10 @@ public class HelloWorldController {
         return new JSONObject().put("Output", String.format(MESSAGE_FORMAT, name)).toString();
     }
 
-
-
-
-
-
-
-
-
-    @RequestMapping(value = "newUser", method = RequestMethod.POST)
-    public String setNewUser(@RequestBody User new_user){
-        DatabaseHandler databaseHandler = new DatabaseHandler();
-        User user = new User(new_user.getUserName(), new_user.getUserEmail(), new_user.getUserPassword());
-        databaseHandler.setNewUser(user);
-        return "OK";
-    }
-
-    @RequestMapping(value = "newTeam", method = RequestMethod.POST)
-    public String setNewTeam(@RequestBody Team new_team){
-        DatabaseHandler databaseHandler = new DatabaseHandler();
-        Team team = new Team(new_team.getTeamName(), new_team.getNumberOfPlayers(), new_team.getTeamLeague());
-        databaseHandler.setNewTeam(team);
-        return "OK";
-    }
-
-
     @RequestMapping(value = "getTeams", method = RequestMethod.GET)
     public String  getAllTeams(){
-        DatabaseHandler databaseHandler = new DatabaseHandler();
-        List<Team> teams = databaseHandler.getAllTeams();
-        JSONArray json = new JSONArray();
-
-        for (int i = 0; i < teams.size(); i++){
-            JSONObject obj = new JSONObject();
-            obj.put("teamId", teams.get(i).getTeamId());
-            obj.put("teamName", teams.get(i).getTeamName());
-            obj.put("numberOfPlayers", teams.get(i).getNumberOfPlayers());
-            obj.put("teamLeague", teams.get(i).getTeamLeague());
-            json.put(obj);
-        }
-        return json.toString();
+        List<User> users = userRep.findAll();
+        User user = users.get(0);
+        return user.getUserEmail();
     }
 }

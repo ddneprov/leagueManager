@@ -1,29 +1,31 @@
-package com.aws.codestar.projecttemplates.controller;
+package com.aws.codestar.projecttemplates.domain;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "users")
 public class User {
 
     @Id
     @GeneratedValue
     private Integer userId;
 
-    private String userName;
+    private String userFirstName;
     private String userEmail;
     private String userPassword;
 
-    public User(Integer userId, String userName, String userEmail, String userPassword) {
+    public User(Integer userId, String userFirstName, String userEmail, String userPassword) {
         this.userId = userId;
-        this.userName = userName;
+        this.userFirstName = userFirstName;
         this.userEmail = userEmail;
         this.userPassword = userPassword;
     }
 
-    public User(String userName, String userEmail, String userPassword) {
-        this.userName = userName;
+    public User(String userFirstName, String userEmail, String userPassword) {
+        this.userFirstName = userFirstName;
         this.userEmail = userEmail;
         this.userPassword = userPassword;
     }
@@ -38,12 +40,12 @@ public class User {
         this.userId = userId;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getUserFirstName() {
+        return userFirstName;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setUserFirstName(String userName) {
+        this.userFirstName = userName;
     }
 
     public String getUserEmail() {

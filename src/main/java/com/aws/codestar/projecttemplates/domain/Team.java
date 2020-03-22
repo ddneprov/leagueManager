@@ -1,10 +1,12 @@
-package com.aws.codestar.projecttemplates.controller;
+package com.aws.codestar.projecttemplates.domain;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "teams")
 public class Team {
 
     @Id
@@ -14,18 +16,21 @@ public class Team {
     private String teamName;
     private Integer numberOfPlayers;
     private String teamLeague;
+    private String teamZone;
 
-    public Team(Integer teamId, String teamName, Integer numberOfPlayers, String teamLeague) {
+    public Team(Integer teamId, String teamName, Integer numberOfPlayers, String teamLeague, String teamZone) {
         this.teamId = teamId;
         this.teamName = teamName;
         this.numberOfPlayers = numberOfPlayers;
         this.teamLeague = teamLeague;
+        this.teamZone = teamZone;
     }
 
-    public Team(String teamName, Integer numberOfPlayers, String teamLeague) {
+    public Team(String teamName, Integer numberOfPlayers, String teamLeague, String teamZone) {
         this.teamName = teamName;
         this.numberOfPlayers = numberOfPlayers;
         this.teamLeague = teamLeague;
+        this.teamZone = teamZone;
     }
 
     public Team() {}
@@ -60,6 +65,14 @@ public class Team {
 
     public void setTeamLeague(String teamLeague) {
         this.teamLeague = teamLeague;
+    }
+
+    public String getTeamZone() {
+        return teamZone;
+    }
+
+    public void setTeamZone(String teamZone) {
+        this.teamZone = teamZone;
     }
 
 }
