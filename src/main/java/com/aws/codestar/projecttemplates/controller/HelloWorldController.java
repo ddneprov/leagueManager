@@ -2,6 +2,7 @@ package com.aws.codestar.projecttemplates.controller;
 
 import com.aws.codestar.projecttemplates.Reprisitory.TeamRep;
 import com.aws.codestar.projecttemplates.Reprisitory.UserRep;
+import com.aws.codestar.projecttemplates.domain.Team;
 import com.aws.codestar.projecttemplates.domain.User;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,12 +18,6 @@ import java.util.List;
 @RequestMapping("/")
 public class HelloWorldController {
 
-    @Autowired
-    TeamRep teamRep;
-
-    @Autowired
-    UserRep userRep;
-
     private static final String MESSAGE_FORMAT = "Hello %s!";
 
     @RequestMapping(method = RequestMethod.GET, produces = "application/json")
@@ -37,12 +32,5 @@ public class HelloWorldController {
 
     private String createResponse(String name) {
         return new JSONObject().put("Output", String.format(MESSAGE_FORMAT, name)).toString();
-    }
-
-    @RequestMapping(value = "getTeams", method = RequestMethod.GET)
-    public String  getAllTeams(){
-        List<User> users = userRep.findAll();
-        User user = users.get(0);
-        return user.getUserEmail();
     }
 }

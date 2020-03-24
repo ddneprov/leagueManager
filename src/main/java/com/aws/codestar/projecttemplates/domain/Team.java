@@ -3,10 +3,8 @@ package com.aws.codestar.projecttemplates.domain;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.Table;
 
 @Entity
-@Table(name = "teams")
 public class Team {
 
     @Id
@@ -14,21 +12,21 @@ public class Team {
     private Integer teamId;
 
     private String teamName;
-    private Integer numberOfPlayers;
+    private Integer teamNumberOfPlayers;
     private String teamLeague;
     private String teamZone;
 
-    public Team(Integer teamId, String teamName, Integer numberOfPlayers, String teamLeague, String teamZone) {
+    public Team(Integer teamId, String teamName, Integer teamNumberOfPlayers, String teamLeague, String teamZone) {
         this.teamId = teamId;
         this.teamName = teamName;
-        this.numberOfPlayers = numberOfPlayers;
+        this.teamNumberOfPlayers = teamNumberOfPlayers;
         this.teamLeague = teamLeague;
         this.teamZone = teamZone;
     }
 
-    public Team(String teamName, Integer numberOfPlayers, String teamLeague, String teamZone) {
+    public Team(String teamName, Integer teamNumberOfPlayers, String teamLeague, String teamZone) {
         this.teamName = teamName;
-        this.numberOfPlayers = numberOfPlayers;
+        this.teamNumberOfPlayers = teamNumberOfPlayers;
         this.teamLeague = teamLeague;
         this.teamZone = teamZone;
     }
@@ -51,12 +49,12 @@ public class Team {
         this.teamName = teamName;
     }
 
-    public Integer getNumberOfPlayers() {
-        return numberOfPlayers;
+    public Integer getTeamNumberOfPlayers() {
+        return teamNumberOfPlayers;
     }
 
-    public void setNumberOfPlayers(Integer numberOfPlayers) {
-        this.numberOfPlayers = numberOfPlayers;
+    public void setTeamNumberOfPlayers(Integer numberOfPlayers) {
+        this.teamNumberOfPlayers = numberOfPlayers;
     }
 
     public String getTeamLeague() {
