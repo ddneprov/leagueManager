@@ -3,7 +3,6 @@ package com.aws.codestar.projecttemplates.controller;
 
 import com.aws.codestar.projecttemplates.Reprisitory.TeamRep;
 import com.aws.codestar.projecttemplates.domain.Team;
-import com.aws.codestar.projecttemplates.domain.User;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;

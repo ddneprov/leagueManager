@@ -1,7 +1,6 @@
 package com.aws.codestar.projecttemplates.controller;
 
 import com.aws.codestar.projecttemplates.Reprisitory.UserRep;
-import com.aws.codestar.projecttemplates.domain.Team;
 import com.aws.codestar.projecttemplates.domain.User;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -28,7 +27,7 @@ public class UserController {
     }
 
     @RequestMapping(value = "/getUsers", method = RequestMethod.GET)
-    public String  getAllTeams() throws JsonProcessingException {
+    public String  getAllUsers() throws JsonProcessingException {
         List<User> users = userRep.findAll();
         ObjectMapper mapper = new ObjectMapper();
         return mapper.writeValueAsString(users);
