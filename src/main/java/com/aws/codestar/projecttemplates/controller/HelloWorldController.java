@@ -1,15 +1,8 @@
 package com.aws.codestar.projecttemplates.controller;
 
-import com.aws.codestar.projecttemplates.Reprisitory.TeamRep;
-import com.aws.codestar.projecttemplates.Reprisitory.UserRep;
-import com.aws.codestar.projecttemplates.domain.Team;
-import com.aws.codestar.projecttemplates.domain.User;
 import org.json.JSONObject;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 /**
  * Basic Spring web service controller that handles all GET requests.

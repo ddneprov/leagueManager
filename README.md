@@ -30,7 +30,7 @@ virtual environment is already set up for you, and you can start working on the
 code.
 
 To work on the sample code, you'll need to clone your project's repository to your
-local computer. If you haven't, do that first. You can find instructions in the AWS CodeStar user guide at https://docs.aws.amazon.com/codestar/latest/userguide/getting-started.html#clone-repo.
+local computer. If you haven't, do that first. You can find instructions in the AWS CodeStar player guide at https://docs.aws.amazon.com/codestar/latest/userguide/getting-started.html#clone-repo.
 
 1. Install maven.  See https://maven.apache.org/install.html for details.
 
@@ -75,7 +75,7 @@ Learn more about Maven's [Standard Directory Layout](https://maven.apache.org/gu
 Learn more about AWS CodeBuild and how it builds and tests your application here:
 https://docs.aws.amazon.com/codebuild/latest/userguide/concepts.html
 
-Learn more about AWS CodeStar by reading the user guide.  Ask questions or make
+Learn more about AWS CodeStar by reading the player guide.  Ask questions or make
 suggestions on our forum.
 
 User Guide: http://docs.aws.amazon.com/codestar/latest/userguide/welcome.html
@@ -90,7 +90,7 @@ file in your project's repository. You may also need to modify permissions for
 your project's worker roles. After you push the template change, AWS CodeStar
 and AWS CloudFormation provision the resources for you.
 
-See the AWS CodeStar user guide for instructions to modify your template:
+See the AWS CodeStar player guide for instructions to modify your template:
 https://docs.aws.amazon.com/codestar/latest/userguide/how-to-change-project.html#customize-project-template
 
 What Should I Do Before Running My Project in Production?

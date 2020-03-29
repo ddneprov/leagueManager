@@ -11,24 +11,32 @@ public class Team {
     @GeneratedValue
     private Integer teamId;
 
+    /**
+     *  Название команды
+     */
     private String teamName;
-    private Integer teamNumberOfPlayers;
-    private String teamLeague;
-    private String teamZone;
 
-    public Team(Integer teamId, String teamName, Integer teamNumberOfPlayers, String teamLeague, String teamZone) {
+    /**
+     *  Количество игроков
+     */
+    private Integer teamNumberOfPlayers;
+
+    /**
+     *  Id лиги, в которой играет команда
+     */
+    private Integer teamLeagueId;
+
+    public Team(Integer teamId, String teamName, Integer teamNumberOfPlayers, Integer teamLeagueId) {
         this.teamId = teamId;
         this.teamName = teamName;
         this.teamNumberOfPlayers = teamNumberOfPlayers;
-        this.teamLeague = teamLeague;
-        this.teamZone = teamZone;
+        this.teamLeagueId = teamLeagueId;
     }
 
-    public Team(String teamName, Integer teamNumberOfPlayers, String teamLeague, String teamZone) {
+    public Team(String teamName, Integer teamNumberOfPlayers, Integer teamLeagueId) {
         this.teamName = teamName;
         this.teamNumberOfPlayers = teamNumberOfPlayers;
-        this.teamLeague = teamLeague;
-        this.teamZone = teamZone;
+        this.teamLeagueId = teamLeagueId;
     }
 
     public Team() {}
@@ -57,20 +65,12 @@ public class Team {
         this.teamNumberOfPlayers = numberOfPlayers;
     }
 
-    public String getTeamLeague() {
-        return teamLeague;
+    public Integer getTeamLeagueId() {
+        return teamLeagueId;
     }
 
-    public void setTeamLeague(String teamLeague) {
-        this.teamLeague = teamLeague;
-    }
-
-    public String getTeamZone() {
-        return teamZone;
-    }
-
-    public void setTeamZone(String teamZone) {
-        this.teamZone = teamZone;
+    public void setTeamLeagueId(Integer teamLeague) {
+        this.teamLeagueId = teamLeague;
     }
 
 }

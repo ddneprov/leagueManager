@@ -5,7 +5,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
-public class User {
+public class Player {
 
     @Id
     @GeneratedValue
@@ -49,8 +49,8 @@ public class User {
     private String userAmplua;
 
 
-    public User(Integer userId, String userFirstName, String userLastName, String userEmail, String userPassword,
-                Byte userIsACapitan, Integer userTeamId, String userAmplua) {
+    public Player(Integer userId, String userFirstName, String userLastName, String userEmail, String userPassword,
+                  Byte userIsACapitan, Integer userTeamId, String userAmplua) {
         this.userId = userId;
         this.userFirstName = userFirstName;
         this.userLastName = userLastName;
@@ -61,8 +61,8 @@ public class User {
         this.userAmplua = userAmplua;
     }
 
-    public User(String userFirstName, String userLastName, String userEmail, String userPassword,
-                Byte userIsACapitan, Integer userTeamId, String userAmplua){
+    public Player(String userFirstName, String userLastName, String userEmail, String userPassword,
+                  Byte userIsACapitan, Integer userTeamId, String userAmplua){
         this.userFirstName = userFirstName;
         this.userLastName = userLastName;
         this.userEmail = userEmail;
@@ -72,7 +72,7 @@ public class User {
         this.userAmplua = userAmplua;
     }
 
-    public User(){}
+    public Player(){}
 
     public Integer getUserId() {
         return userId;
