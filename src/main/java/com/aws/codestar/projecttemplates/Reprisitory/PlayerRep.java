@@ -7,4 +7,5 @@ import java.util.List;
 
 public interface PlayerRep extends CrudRepository<Player, String> {
     public List<Player> findAll();
+    public Player findFirstByPlayerId(Integer playerId);
 }

@@ -9,132 +9,131 @@ public class Player {
 
     @Id
     @GeneratedValue
-    private Integer userId;
+    private Integer playerId;
 
     /**
      * Имя пользователя
      */
-    private String userFirstName;
+    private String playerFirstName;
 
     /**
      * Фамилия пользователя
      */
-    private String userLastName;
+    private String playerLastName;
 
     /**
      * Email пользователя
      */
-    private String userEmail;
+    private String playerEmail;
 
     /**
      * Пароль пользователя
      */
-    private String userPassword;
+    private String playerPassword;
 
     /**
      * Роль пользователя ( игрок/капитан )
      * 0 - обычный игрок
      * 1 - капитан команды
      */
-    private Byte userIsACapitan;
+    private Byte playerIsACapitan;
 
     /**
      * ID Команды, в которой играет пользователь
      */
-    private Integer userTeamId;
+    private Integer playerTeamId;
 
     /**
      *  Амплуа игрока ( нападающий, полузащитник, защитник, вратарь )
      */
-    private String userAmplua;
+    private String playerAmplua;
 
-
-    public Player(Integer userId, String userFirstName, String userLastName, String userEmail, String userPassword,
-                  Byte userIsACapitan, Integer userTeamId, String userAmplua) {
-        this.userId = userId;
-        this.userFirstName = userFirstName;
-        this.userLastName = userLastName;
-        this.userEmail = userEmail;
-        this.userPassword = userPassword;
-        this.userIsACapitan = userIsACapitan;
-        this.userTeamId = userTeamId;
-        this.userAmplua = userAmplua;
+    public Player(Integer playerId, String playerFirstName, String playerLastName, String playerEmail, String playerPassword,
+                  Byte playerIsACapitan, Integer playerTeamId, String playerAmplua) {
+        this.playerId = playerId;
+        this.playerFirstName = playerFirstName;
+        this.playerLastName = playerLastName;
+        this.playerEmail = playerEmail;
+        this.playerPassword = playerPassword;
+        this.playerIsACapitan = playerIsACapitan;
+        this.playerTeamId = playerTeamId;
+        this.playerAmplua = playerAmplua;
     }
 
-    public Player(String userFirstName, String userLastName, String userEmail, String userPassword,
-                  Byte userIsACapitan, Integer userTeamId, String userAmplua){
-        this.userFirstName = userFirstName;
-        this.userLastName = userLastName;
-        this.userEmail = userEmail;
-        this.userPassword = userPassword;
-        this.userIsACapitan = userIsACapitan;
-        this.userTeamId = userTeamId;
-        this.userAmplua = userAmplua;
+    public Player(String playerFirstName, String playerLastName, String playerEmail, String playerPassword,
+                  Byte playerIsACapitan, Integer playerTeamId, String playerAmplua) {
+        this.playerFirstName = playerFirstName;
+        this.playerLastName = playerLastName;
+        this.playerEmail = playerEmail;
+        this.playerPassword = playerPassword;
+        this.playerIsACapitan = playerIsACapitan;
+        this.playerTeamId = playerTeamId;
+        this.playerAmplua = playerAmplua;
     }
 
     public Player(){}
 
-    public Integer getUserId() {
-        return userId;
+    public Integer getPlayerId() {
+        return playerId;
     }
 
-    public void setUserId(Integer userId) {
-        this.userId = userId;
+    public void setPlayerId(Integer playerId) {
+        this.playerId = playerId;
     }
 
-    public String getUserFirstName() {
-        return userFirstName;
+    public String getPlayerFirstName() {
+        return playerFirstName;
     }
 
-    public void setUserFirstName(String userName) {
-        this.userFirstName = userName;
+    public void setPlayerFirstName(String playerFirstName) {
+        this.playerFirstName = playerFirstName;
     }
 
-    public String getUserEmail() {
-        return userEmail;
+    public String getPlayerLastName() {
+        return playerLastName;
     }
 
-    public void setUserEmail(String userEmail) {
-        this.userEmail = userEmail;
+    public void setPlayerLastName(String playerLastName) {
+        this.playerLastName = playerLastName;
     }
 
-    public String getUserPassword() {
-        return userPassword;
+    public String getPlayerEmail() {
+        return playerEmail;
     }
 
-    public void setUserPassword(String userPassword) {
-        this.userPassword = userPassword;
+    public void setPlayerEmail(String playerEmail) {
+        this.playerEmail = playerEmail;
     }
 
-    public String getUserLastName() {
-        return userLastName;
+    public String getPlayerPassword() {
+        return playerPassword;
     }
 
-    public void setUserLastName(String userLastName) {
-        this.userLastName = userLastName;
+    public void setPlayerPassword(String playerPassword) {
+        this.playerPassword = playerPassword;
     }
 
-    public Byte getUserIsACapitan() {
-        return userIsACapitan;
+    public Byte getPlayerIsACapitan() {
+        return playerIsACapitan;
     }
 
-    public void setUserIsACapitan(Byte userIsACapitan) {
-        this.userIsACapitan = userIsACapitan;
+    public void setPlayerIsACapitan(Byte playerIsACapitan) {
+        this.playerIsACapitan = playerIsACapitan;
     }
 
-    public Integer getUserTeamId() {
-        return userTeamId;
+    public Integer getPlayerTeamId() {
+        return playerTeamId;
     }
 
-    public void setUserTeamId(Integer userTeam) {
-        this.userTeamId = userTeam;
+    public void setPlayerTeamId(Integer playerTeamId) {
+        this.playerTeamId = playerTeamId;
     }
 
-    public String getUserAmplua() {
-        return userAmplua;
+    public String getPlayerAmplua() {
+        return playerAmplua;
     }
 
-    public void setUserAmplua(String userAmplua) {
-        this.userAmplua = userAmplua;
+    public void setPlayerAmplua(String playerAmplua) {
+        this.playerAmplua = playerAmplua;
     }
 }
