@@ -36,4 +36,16 @@ public class PlayerController {
         ObjectMapper mapper = new ObjectMapper();
         return mapper.writeValueAsString(player);
     }
+
+    @RequestMapping(value = "/checkPlayerExists", method = RequestMethod.GET)
+    public String checkPlayerExists (@RequestParam String playerEmail, String playerPassword) throws JsonProcessingException {
+        try{
+            Player player = playerRep.findByPlayerEmailAndPlayerPassword(playerEmail, playerPassword);
+            ObjectMapper mapper = new ObjectMapper();
+            return mapper.writeValueAsString(player);
+        }catch (NullPointerException ex) {
+            System.out.println(ex.getMessage());
+        }
+        return "error";
+    }
 }
