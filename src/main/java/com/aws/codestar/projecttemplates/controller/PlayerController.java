@@ -48,4 +48,16 @@ public class PlayerController {
         }
         return "error";
     }
+
+    @RequestMapping(value = "/getTeammates", method = RequestMethod.GET)
+    public String getTeammates(@RequestParam Integer playerTeamId){
+        try{
+            List<Player> players = playerRep.findAllByPlayerTeamId(playerTeamId);
+            ObjectMapper mapper = new ObjectMapper();
+            return mapper.writeValueAsString(players);
+        }catch (NullPointerException | JsonProcessingException ex) {
+            System.out.println(ex.getMessage());
+        }
+        return "error";
+    }
 }

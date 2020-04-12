@@ -6,11 +6,9 @@ import com.aws.codestar.projecttemplates.domain.Team;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import javax.persistence.criteria.CriteriaBuilder;
 import java.util.List;
 
 @RestController
@@ -31,5 +29,12 @@ public class TeamController {
         List<Team> teams = teamRep.findAll();
         ObjectMapper mapper = new ObjectMapper();
         return mapper.writeValueAsString(teams);
+    }
+
+    @RequestMapping(value = "/getTeamById", method = RequestMethod.GET)
+    public String  getTeams(@RequestParam Integer teamId) throws JsonProcessingException {
+        Team team = teamRep.findFirstByTeamId(teamId);
+        ObjectMapper mapper = new ObjectMapper();
+        return mapper.writeValueAsString(team);
     }
 }
