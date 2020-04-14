@@ -7,6 +7,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.persistence.criteria.CriteriaBuilder;
 import java.util.List;
 
 
@@ -49,6 +50,21 @@ public class PlayerController {
         return "error";
     }
 
+
+    @RequestMapping(value = "/getByEmail", method = RequestMethod.GET)
+    public String checkPlayerExists (@RequestParam String playerEmail) throws JsonProcessingException {
+        try{
+            Player player = playerRep.findFirstByPlayerEmail(playerEmail);
+            ObjectMapper mapper = new ObjectMapper();
+            return mapper.writeValueAsString(player);
+        }catch (NullPointerException ex) {
+            System.out.println(ex.getMessage());
+        }
+        return "error";
+    }
+
+
+
     @RequestMapping(value = "/getTeammates", method = RequestMethod.GET)
     public String getTeammates(@RequestParam Integer playerTeamId){
         try{
@@ -60,4 +76,14 @@ public class PlayerController {
         }
         return "error";
     }
+
+    @RequestMapping(value = "/changeTeam", method = RequestMethod.POST)
+    public String  changeTeam(@RequestParam Integer playerId, Integer teamId){
+        Player player = playerRep.findFirstByPlayerId(playerId);
+        player.setPlayerTeamId(teamId);
+        playerRep.save(player);
+        return "OK" + "\n" + player.toString();
+    }
+
+
 }

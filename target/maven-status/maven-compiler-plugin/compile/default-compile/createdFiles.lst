@@ -1,8 +1,12 @@
 com/aws/codestar/projecttemplates/Reprisitory/TeamRep.class
 com/aws/codestar/projecttemplates/controller/HelloWorldController.class
-com/aws/codestar/projecttemplates/controller/Const.class
+com/aws/codestar/projecttemplates/domain/Admin.class
+com/aws/codestar/projecttemplates/controller/LeagueController.class
+com/aws/codestar/projecttemplates/controller/PlayerController.class
 com/aws/codestar/projecttemplates/Application.class
-com/aws/codestar/projecttemplates/domain/User.class
-com/aws/codestar/projecttemplates/controller/Config.class
-com/aws/codestar/projecttemplates/Reprisitory/UserRep.class
+com/aws/codestar/projecttemplates/domain/Player.class
+com/aws/codestar/projecttemplates/Reprisitory/LeagueRep.class
+com/aws/codestar/projecttemplates/Reprisitory/PlayerRep.class
+com/aws/codestar/projecttemplates/domain/League.class
+com/aws/codestar/projecttemplates/controller/TeamController.class
 com/aws/codestar/projecttemplates/domain/Team.class
