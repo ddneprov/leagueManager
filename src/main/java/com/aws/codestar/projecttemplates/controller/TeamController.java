@@ -37,4 +37,11 @@ public class TeamController {
         ObjectMapper mapper = new ObjectMapper();
         return mapper.writeValueAsString(team);
     }
+
+    @RequestMapping(value = "/getTeamByName", method = RequestMethod.GET)
+    public String  getTeamByName(@RequestParam String teamName) throws JsonProcessingException {
+        Team team = teamRep.findFirstByTeamName(teamName);
+        ObjectMapper mapper = new ObjectMapper();
+        return mapper.writeValueAsString(team);
+    }
 }

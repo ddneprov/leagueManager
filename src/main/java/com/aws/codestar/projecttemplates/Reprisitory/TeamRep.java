@@ -8,5 +8,6 @@ import java.util.List;
 public interface TeamRep extends CrudRepository<Team, Integer> {
     public List<Team> findAll();
     Team findFirstByTeamId(Integer teamId);
+    Team findFirstByTeamName(String teamEmail);
 }
 
